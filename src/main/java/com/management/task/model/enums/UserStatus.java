@@ -1,6 +1,6 @@
 package com.management.task.model.enums;
 
-public enum Delete {
+public enum UserStatus {
 
     ACTIVE,
     DELETE,

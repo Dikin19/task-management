@@ -28,13 +28,13 @@ public class BaseEntity {
     @Column(columnDefinition = "timestamp with time zone", nullable = false, updatable = false)
     private LocalDateTime createdDate;
 
-    @LastModifiedDate
-    @Column(columnDefinition = "timestamp with time zone", nullable = false)
-    private LocalDateTime modifiedDate;
-
     @CreatedBy
     @Column(nullable = false, updatable = false)
     private String createdBy;
+
+    @LastModifiedDate
+    @Column(columnDefinition = "timestamp with time zone", nullable = false)
+    private LocalDateTime modifiedDate;
 
     @LastModifiedDate
     private String updatedBy;
