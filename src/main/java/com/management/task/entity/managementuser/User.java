@@ -2,6 +2,7 @@ package com.management.task.entity.managementuser;
 
 
 import com.management.task.entity.app.BaseEntity;
+import com.management.task.model.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,6 +35,10 @@ public class User extends BaseEntity {
 
     @Column(nullable = false)
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
 
 
 }
