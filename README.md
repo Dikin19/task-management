@@ -12,15 +12,16 @@ http://localhost:8080/users
 ### 1. Create User
 **Request**
 - Method: `POST`
-- URL: `/api/users`
+- URL: `/users/register`
 - Headers: `Content-Type: application/json`
 
 **Body**
 ```json
 {
-  "name": "Admin",
-  "email": "Admin@example.com",
-  "password": "admin123"
+  "username": "Admin",
+  "password": "admin123",
+  "role": "ADMIN",
+  "userStatus": "ACTIVE"
 }
 
 ```
@@ -28,17 +29,16 @@ http://localhost:8080/users
 **Response**
 ```json
 {
-  "id": 1,
-  "name": "Admin",
-  "email": "Admin@example.com"
+  "message": "Data berhasil ditambah"
 }
+
 
 ```
 
 ### 2. Get All Users
 **Request**
 - Method: `GET`
-- URL: `/api/users`
+- URL: `/users/find-all`
 - Headers: `Content-Type: application/json`
 
 **Body**
@@ -46,13 +46,17 @@ http://localhost:8080/users
 [
   {
     "id": 1,
-    "name": "Admin",
-    "email": "Admin@example.com"
+    "username": "Admin",
+    "password": "123456",
+    "role": "ADMIN",
+    "userStatus": "ACTIVE"
   },
   {
     "id": 2,
-    "name": "Member",
-    "email": "Member@example.com"
+    "username": "Admin",
+    "password": "123456",
+    "role": "ADMIN",
+    "userStatus": "ACTIVE"
   }
 ]
 ```
@@ -60,47 +64,16 @@ http://localhost:8080/users
 ### 3. Get User By ID
 **Request**
 - Method: `GET`
-- URL: `/api/users/{id}`
+- URL: `/users/{id}`
 - Headers: `Content-Type: application/json`
 
 **Body**
 ```json
 {
   "id": 1,
-  "name": "Admin",
-  "email": "Admin@example.com"
+  "username": "Admin",
+  "password": "123456",
+  "role": "ADMIN",
+  "userStatus": "ACTIVE"
 }
 ```
-
-### 4. Update User
-**Request**
-- Method: `PUT`
-- URL: `/api/users/{id}`
-- Headers: `Content-Type: application/json`
-
-**Body**
-```json
-{
-  "name": "John Updated",
-  "email": "john.updated@example.com",
-  "password": "newpassword123"
-}
-```
-**Response**
-```json
-{
-  "id": 1,
-  "name": "John Updated",
-  "email": "john.updated@example.com"
-}
-```
-
-### 5. Delete User
-**Request**
-- Method: `DELETE`
-- URL: `/api/users/{id}`
-- Headers: `Content-Type: application/json`
-
-{
-  "message": "User deleted successfully"
-} 
