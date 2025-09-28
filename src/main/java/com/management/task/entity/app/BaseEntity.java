@@ -1,4 +1,4 @@
-package com.management.task.entity;
+package com.management.task.entity.app;
 
 
 import jakarta.persistence.Column;
