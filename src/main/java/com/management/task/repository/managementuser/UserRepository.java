@@ -1,4 +1,11 @@
-package com.management.task.repository;
+package com.management.task.repository.managementuser;
 
-public interface UserRepository {
+import com.management.task.entity.managementuser.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
+public interface UserRepository extends JpaRepository<User, String>, JpaSpecificationExecutor<User> {
+
+    boolean existsByUsername(String username);
+
 }

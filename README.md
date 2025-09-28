@@ -3,7 +3,7 @@
 Dokumentasi API untuk **User Management** pada aplikasi ini. Semua endpoint menggunakan format **JSON**.
 
 ## Base URL
-http://localhost:8080/api/users
+http://localhost:8080/users
 
 ---
 
