@@ -5,7 +5,6 @@ import com.management.task.mapper.managementuser.Usermapper;
 import com.management.task.model.request.UserRequestRecord;
 import com.management.task.repository.managementuser.UserRepository;
 import com.management.task.service.managementuser.UserAuthService;
-import com.management.task.service.managementuser.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -24,6 +23,7 @@ public class UserAuthServiceImpl implements UserAuthService {
         validasiMandatory(request);
 
         var user = usermapper.requestToEntity(request);
+        user.setPassword(passwordEncoder.encode(request.password()));
         userRepository.save(user);
     }
 
