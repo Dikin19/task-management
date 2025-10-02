@@ -1,6 +1,7 @@
 package com.management.task.controller;
 
 
+import com.management.task.model.app.SimpleMap;
 import com.management.task.model.request.UserRequestRecord;
 import com.management.task.model.response.BaseResponse;
 import com.management.task.service.managementuser.UserAuthService;
@@ -22,6 +23,11 @@ public class UserAuthController {
         userAuthService.register(request);
         return BaseResponse.ok("Data berhasil disimpan", null);
 
+    }
+
+    @PostMapping("/login")
+    public BaseResponse<?> login(@RequestBody UserRequestRecord request){
+        return BaseResponse.ok(null, userAuthService.login(request));
     }
 
 }

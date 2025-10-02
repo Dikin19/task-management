@@ -10,11 +10,14 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @RequiredArgsConstructor
 @EnableMethodSecurity
 public class SecurityConfig {
+
+    private final JwtAuthenticationConfig jwtAuthenticationConfig;
 
     // ketika memasang spring security untuk password. otomatis semua api membutuhkan authentication.
     @Bean
@@ -29,10 +32,11 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests( auth -> auth
-                        .requestMatchers("/users/register", "/usersAuth/register").permitAll()
+                        .requestMatchers("/usersAuth/login", "/usersAuth/register", "/users/register").permitAll()
                         // setelah ini kia butuh Aktifkan JPA Auditing dengan AuditorAware untuk created-By di file config
                         .anyRequest().authenticated()
-                );
+                )
+                .addFilterBefore(jwtAuthenticationConfig, UsernamePasswordAuthenticationFilter.class);
         return http.build();
 
     } // setelah ini kia butuh Aktifkan JPA Auditing dengan AuditorAware untuk created-By di file config

@@ -146,3 +146,19 @@ Using generated security password: 9da5be0f-fb8e-47a8-8753-ef74cac9b883
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
+2025-10-02_23:30:56.126 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-02_23:30:59.109 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-02_23:30:59.198 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: ce6e2901-cd7e-4403-858d-e1f6f85ad7b0
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-10-02_23:33:49.613 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-02_23:33:52.453 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-02_23:33:52.520 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 82c431bd-453d-4004-b23f-8e8ff478b224
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
