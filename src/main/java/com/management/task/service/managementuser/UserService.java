@@ -6,4 +6,5 @@ public interface UserService {
 
     void register(UserRequestRecord request);
 
+    void login (UserRequestRecord request);
 }

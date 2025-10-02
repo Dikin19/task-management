@@ -24,7 +24,6 @@ public class BaseResponse<T> {
     private T data;
 
     public static <T> BaseResponse<T> ok(String message, T data){
-
         // buat baseResponse untuk success pertama kali ketika mau membuat api register
         return BaseResponse.<T>builder()
                 .success(true)

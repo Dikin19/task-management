@@ -10,7 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import java.util.Optional;
 
 @Configuration
-@EnableJpaAuditing
+@EnableJpaAuditing // membuat otomatis @CreatedDate, @LastModifiedDate, @CreatedBy, @LastModifiedBy
 public class AuditConfig {
 
     @Bean

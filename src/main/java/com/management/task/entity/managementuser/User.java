@@ -11,13 +11,19 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDateTime;
+
 @EqualsAndHashCode(callSuper = true)
 @Data
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "m_user", indexes = {
+@Table(name = "m_user", indexes = { //dipakai untuk membuat indeks database di kolom tertentu.
+        // Indeks ini gunanya mempercepat query SELECT (misalnya WHERE, JOIN, ORDER BY).
+        // jika tidak butuh query tidak perlu memakai table indexes.
+        //create index idx_user_username on m_user(username);
+        // select * from m_user where username = 'andi';
         @Index(name = "idx_user_created_date", columnList = "createdDate"),
         @Index(name = "idx_user_modified_date", columnList = "modifiedDate"),
         @Index(name = "idx_user_username", columnList = "username"),
@@ -45,5 +51,9 @@ public class User extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private UserStatus userStatus = UserStatus.ACTIVE;
+
+    private String token;
+
+    private LocalDateTime expiredTokenAt;
 
 }
