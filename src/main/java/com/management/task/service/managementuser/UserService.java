@@ -5,6 +5,4 @@ import com.management.task.model.request.UserRequestRecord;
 public interface UserService {
 
     void register(UserRequestRecord request);
-
-    void login (UserRequestRecord request);
 }
