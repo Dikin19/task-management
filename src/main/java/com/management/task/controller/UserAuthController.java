@@ -1,7 +1,6 @@
 package com.management.task.controller;
 
 
-import com.management.task.model.app.SimpleMap;
 import com.management.task.model.request.UserRequestRecord;
 import com.management.task.model.response.BaseResponse;
 import com.management.task.service.managementuser.UserAuthService;

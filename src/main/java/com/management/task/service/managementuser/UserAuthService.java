@@ -6,6 +6,7 @@ import com.management.task.model.request.UserRequestRecord;
 public interface UserAuthService {
 
     void register(UserRequestRecord request);
+
     SimpleMap login(UserRequestRecord request);
 
 }

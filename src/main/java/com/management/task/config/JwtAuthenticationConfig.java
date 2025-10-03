@@ -1,5 +1,6 @@
 package com.management.task.config;
 
+import com.management.task.service.managementuser.impl.UserLoggedInServiceImpl;
 import com.management.task.util.JwtUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -7,12 +8,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.lang.NonNull;
+import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
-import org.springframework.stereotype.Component;
-import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
@@ -28,7 +29,7 @@ public class JwtAuthenticationConfig extends OncePerRequestFilter {
 
         String path = request.getServletPath();
 
-        if (path.startsWith("/usersAuth/login") || path.equals("/userAuth/register")){
+        if (path.startsWith("/usersAuth/login") || path.equals("/usersAuth/register")){
             filterChain.doFilter(request, response);
             return;
         }
@@ -41,7 +42,7 @@ public class JwtAuthenticationConfig extends OncePerRequestFilter {
 //            jwt = authHeader.substring(7);
 //            username = jwtUtil.extractUsername(jwt);
 //        }
-//
+
 //        if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 //            UserDetails userDetails = this.userService.loadUserByUsername(username);
 //
