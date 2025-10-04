@@ -1,6 +1,7 @@
 package com.management.task.service.managementuser.impl;
 
 
+import com.management.task.entity.managementuser.User;
 import com.management.task.mapper.managementuser.Usermapper;
 import com.management.task.model.app.SimpleMap;
 import com.management.task.model.request.UserRequestRecord;
@@ -68,6 +69,14 @@ public class UserAuthServiceImpl implements UserAuthService {
 
 
     }
+
+    @Override
+    public void logout(User userLogout){
+        userLogout.setToken(null);
+        userLogout.setExpiredTokenAt(null);
+        userRepository.save(userLogout);
+    }
+
 
     private void validasiMandatory(UserRequestRecord request){
 

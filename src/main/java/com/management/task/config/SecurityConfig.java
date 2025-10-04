@@ -19,6 +19,7 @@ public class SecurityConfig {
 
     private final JwtAuthenticationConfig jwtAuthenticationConfig;
 
+    //Register
     // ketika memasang spring security untuk password. otomatis semua api membutuhkan authentication.
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -27,6 +28,7 @@ public class SecurityConfig {
 
     // kita buat security custom agar api bisa digunakan tanpa login
     // jika tidak dibuat SecurityFilterChain api tidak akan ada yang berjalan.
+    // Login
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
