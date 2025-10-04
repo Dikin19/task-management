@@ -33,4 +33,23 @@ public class BaseResponse<T> {
                 .build();
     }
 
+    // untuk AccesDeniedConfig
+    public static <T> BaseResponse<T> forbiddenAccess(String message) {
+        return BaseResponse.<T>builder()
+                .status(403)
+                .success(false)
+                .message(message)
+                .data(null)
+                .build();
+    }
+    // AuhenticationEntryPoint
+    public static <T> BaseResponse<T> unauthorizedAccess(String message) {
+        return BaseResponse.<T>builder()
+                .status(401)
+                .success(false)
+                .message(message)
+                .data(null)
+                .build();
+    }
+
 }

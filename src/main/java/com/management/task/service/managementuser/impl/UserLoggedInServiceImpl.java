@@ -18,10 +18,13 @@ public class UserLoggedInServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
         var user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User : " + username + " tidak ditemukan"));
+
         System.out.println("Username dari token: " + username);
         System.out.println("User ditemukan: " + user);
+
         Checks.isTrue(StringUtils.isNotBlank(user.getToken()), "Session habis, silahkan login kembali");
         return new UserLoggedInConfig(user);
     }

@@ -28,6 +28,7 @@ public class UserLoggedInConfig implements UserDetails {
         }
 
     @Override // Menandakan method ini meng-override method dari interface UserDetails.
+    // hasRole
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_" + user.getRole().name()));
     }

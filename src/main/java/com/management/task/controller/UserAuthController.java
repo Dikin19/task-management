@@ -1,10 +1,12 @@
 package com.management.task.controller;
 
 
+import com.management.task.config.UserLoggedInConfig;
 import com.management.task.model.request.UserRequestRecord;
 import com.management.task.model.response.BaseResponse;
 import com.management.task.service.managementuser.UserAuthService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,8 +29,13 @@ public class UserAuthController {
         return BaseResponse.ok(null, userAuthService.login(request));
     }
 
-//    @GetMapping("/logout")
-//    public BaseResponse<?> logout(AuthenticationPrincipal )
+    @GetMapping("/logout")
+    @PreAuthorize("hasRole('ADMIN')")
+    public BaseResponse<?> logout(@AuthenticationPrincipal UserLoggedInConfig userLogout){
+        var userLoggedIn = userLogout.getUser();
+        userAuthService.logout(userLoggedIn);
+        return BaseResponse.ok("Berhasil logout", null);
+    }
 
 
 
