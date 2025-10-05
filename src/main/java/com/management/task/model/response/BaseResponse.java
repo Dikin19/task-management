@@ -52,4 +52,31 @@ public class BaseResponse<T> {
                 .build();
     }
 
+    public static <T> BaseResponse<T> error(String message, T data){
+        return BaseResponse.<T>builder()
+                .status(500)
+                .success(false)
+                .message(message)
+                .data(data)
+                .build();
+    }
+
+    public static <T> BaseResponse<T> badRequest(String message){
+        return BaseResponse.<T>builder()
+                .status(400)
+                .success(false)
+                .message(message)
+                .data(null)
+                .build();
+    }
+
+    public static <T> BaseResponse<T> create(int status, boolean success, String message, T data){
+        return BaseResponse.<T>builder()
+                .status(status)
+                .success(success)
+                .message(StringUtils.isNotBlank(message) ? message : " ")
+                .data(data)
+                .build();
+    }
+
 }
